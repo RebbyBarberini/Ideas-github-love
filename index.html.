@@ -1,0 +1,17 @@
+function generaCodiceUnico() {
+    // Genera un codice unico nel formato standard UUID v4: xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0; // Numero casuale tra 0 e 15
+        const v = c === 'x' ? r : (r & 0x3 | 0x8); // Logica specifica per UUID v4
+        return v.toString(16); // Converte il numero in una cifra esadecimale
+    });
+}
+
+// Esempio di utilizzo:
+const mioCodice = generaCodiceUnico();
+
+console.log("Primo Codice Unico Generato: " + mioCodice);
+// Esempio output: 9b1c70e2-6d4a-4c8d-8a21-9f3b1e7c5a0d
+
+console.log("Secondo Codice Unico Generato: " + generaCodiceUnico());
+// Esempio output: f2a8b3d5-1f9e-4c2f-9d47-6b0a8e1c3f2d
